@@ -1,0 +1,12 @@
+{
+  "name": "voice-of-the-code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "run-client": "cd ./client && yarn start",
+    "run-server": "echo hello",
+    "build-client": "cd ./client && yarn build"
+  },
+  "author": "这个jira提给后端",
+  "license": "MIT"
+}
