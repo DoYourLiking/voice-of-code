@@ -5,11 +5,11 @@ const { getExamplePath } = require('../src/utils/path')
 const { describe } = require('@jest/globals')
 
 
-
 describe('基于 eslint 的代码分析', () => {
   test('test 之后完善', () => {
     const f = fs.readFileSync(path.resolve(getExamplePath('demo')))
-    analysis(f.toString())
+    const result = analysis(f.toString())
+    expect(result.detail.length).toBeGreaterThan(0)
   })
 
 

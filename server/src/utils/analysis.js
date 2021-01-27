@@ -2,7 +2,7 @@ const { BASE_RULES } = require('../common/rules')
 const { Linter } = require('eslint')
 const noMixedQuoteRule = require('./rules/noMixedQuotes')
 
-const analysis = (code, fileName, rules = BASE_RULES) => {
+const analysis = (code, fileName = 'code.js', rules = BASE_RULES) => {
   const linter = new Linter()
 
   linter.defineRule('no-mixed-quotes', noMixedQuoteRule)

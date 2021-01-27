@@ -28,8 +28,14 @@ var foo = a && b < 0 || c > 0 || d + 1 === 0
 var sum = 1 + 2
 
 // 禁止属性前的空白
-foo. bar .baz . quz
+foo.bar.baz.quz
 
 // 属性并没有分散
-const newObject = {a: 1, b: [2, {a: 3, b: 4}]};
+const newObject = { a: 1, b: [2, { a: 3, b: 4 }] }
+
+// 常量
+const ARR_bad = 2313
+
+// 混用字符串引号
+const sss = "213213"
 
