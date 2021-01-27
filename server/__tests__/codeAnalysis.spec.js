@@ -8,7 +8,7 @@ const { describe } = require('@jest/globals')
 
 
 describe('基于 eslint 的代码分析', () => {
-  test('test 之后完善', () => {
+  test('demo 案例，包含两个自定义规则', () => {
     const f = fs.readFileSync(path.resolve(getExamplePath('demo')))
     const result = new CodeAnalysis(f.toString())
       .registerRules('no-mixed-quotes', noMixQuotes)
@@ -27,5 +27,15 @@ describe('基于 eslint 的代码分析', () => {
       .startLint()
       .getResult()
     expect(result.detail.length).toBeGreaterThan(0)
+  })
+
+  test('typescript 案例，包含自定义规则', () => {
+    const f = fs.readFileSync(path.resolve(getExamplePath('demoTypescript', 'ts')))
+    const result = new CodeAnalysis(f.toString(), 'typescript')
+      .registerRules('no-mixed-quotes', noMixQuotes)
+      .registerRules('upper-case-const-name', upperCaseConstName)
+      .startLint()
+      .getResult()
+    expect(result.detail.length).toStrictEqual(2)
   })
 })
