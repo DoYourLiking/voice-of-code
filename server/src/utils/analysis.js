@@ -43,7 +43,11 @@ class CodeAnalysis {
         extends: 'eslint:recommended',
         rules: this.rules,
         parserOptions: {
-          ecmaVersion: 6
+          ecmaVersion: 6,
+          sourceType: 'module',
+          ecmaFeatures: {
+            jsx: true
+          }
         },
         plugins: this.getPlugin(),
         parser: this.parser
