@@ -4,7 +4,7 @@ const errorHandler = async (ctx, next) => {
   try {
     await next()
     // TODO: 统一处理其它的异常
-    if(parseInt(ctx.status) === 404 ){
+    if (parseInt(ctx.status) === 404) {
       ctx.status = 404
       ctx.body = createResponse('A0001', '找不到所需资源~')
     }
