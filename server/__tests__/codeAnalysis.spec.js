@@ -37,7 +37,6 @@ describe('基于 eslint 的代码分析', () => {
   })
 
 
-
   test('typescript 案例，包含自定义规则', () => {
     const f = fs.readFileSync(path.resolve(getExamplePath('demoTypescript', 'ts')))
     const result = new CodeAnalysis(f.toString(), 'typescript')
@@ -66,5 +65,16 @@ describe('基于 eslint 的代码分析', () => {
       .startLint()
       .getResult()
     expect(result.detail.length).toStrictEqual(2)
+  })
+
+  test('选择错误的代码类型(ts--js)造成解析错误', () => {
+    const f = fs.readFileSync(path.resolve(getExamplePath('demoTypescript', 'ts')))
+    // ts 但选择了 js
+    const result = new CodeAnalysis(f.toString(), 'javascript')
+      .startLint()
+      .getResult()
+    expect(result.detail.length).toStrictEqual(1)
+    expect(result.hasError).toBeTruthy()
+    expect(result.message).toStrictEqual('Parsing error: Unexpected token :')
   })
 })

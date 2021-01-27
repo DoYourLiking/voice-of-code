@@ -5,7 +5,8 @@
   "license": "MIT",
   "author": "这个jira提给后端",
   "scripts": {
-    "run": "nodemon ./src/index.js"
+    "run": "nodemon ./src/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "@jest/globals": "^26.6.2",
