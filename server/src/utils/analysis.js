@@ -1,31 +1,46 @@
 const { BASE_RULES } = require('../common/rules')
 const { Linter } = require('eslint')
-const noMixedQuoteRule = require('./rules/noMixedQuotes')
 
-const analysis = (code, fileName = 'code.js', rules = BASE_RULES) => {
-  const linter = new Linter()
+class CodeAnalysis {
+  constructor(code, type = 'javaScript', rules = BASE_RULES) {
+    this.linter = new Linter()
+    this.code = code
+    this.type = type
+    this.rules = rules
+  }
 
-  linter.defineRule('no-mixed-quotes', noMixedQuoteRule)
+  registerRules(name, ruleModule, level = 'error') {
+    this.linter.defineRule(name, ruleModule)
+    this.rules[name] = level
+    return this
+  }
 
-  const messages = linter.verify(
-    code,
-    {
-      extends: 'eslint:recommended',
-      rules: rules,
-      parserOptions: {
-        ecmaVersion: 6
+  startLint() {
+    this.results = this.linter.verify(
+      this.code,
+      {
+        extends: 'eslint:recommended',
+        rules: this.rules,
+        parserOptions: {
+          ecmaVersion: 6
+        }
+      },
+      {
+        // 禁止以注释的方式屏蔽 eslint
+        allowInlineConfig: false
       }
-    },
-    {
-      filename: fileName,
-      // 禁止以注释的方式屏蔽 eslint
-      allowInlineConfig: false
-    }
-  )
+    )
+    return this
+  }
 
-  return {
-    detail: messages
+  getResult() {
+    return {
+      detail: this.results
+    }
   }
 }
 
-module.exports = analysis
+
+module.exports = {
+  CodeAnalysis
+}
