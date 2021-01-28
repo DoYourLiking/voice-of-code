@@ -10,6 +10,7 @@ const errorHandler = async (ctx, next) => {
       ctx.body = createResponse('A0001', '找不到所需资源~')
     }
   } catch (err) {
+    console.log(err)
     // err 可以拿到异常的具体信息，可以来决定返回的 message
     // console.log(err)
     return ctx.body = createResponse('A0001', err.message)

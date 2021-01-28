@@ -5,11 +5,7 @@ const { codeUpload } = require('../middleware/codeUpload')
 
 const musicRouter = new Router({ prefix: '/music' })
 
-// 上传方式分析代码 && 生成音乐
-musicRouter.post('/get_by_upload', codeUpload, codeAnalysis, musicGenerate)
-
-// 直接 post 代码 && 生成音乐
-musicRouter.post('/get_by_code', codeAnalysis, musicGenerate)
-
+// 分析代码 && 生成音乐
+musicRouter.post('/', codeUpload, codeAnalysis, musicGenerate)
 
 module.exports = musicRouter
