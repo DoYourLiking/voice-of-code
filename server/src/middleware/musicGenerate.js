@@ -6,7 +6,8 @@ const musicGenerate = async (ctx, next) => {
   ctx.body = createResponse(
     null,
     '生成成功~', {
-      'music': '11 55 66 5 44 33 22 1'
+      'music': '11 55 66 5 44 33 22 1',
+      'eslintDetail': ctx.analysisResult
     })
   await next()
 }
