@@ -2,6 +2,7 @@
 const createResponse = require('../utils/createResponse')
 const errorHandler = async (ctx, next) => {
   try {
+    console.log(ctx.request.file)
     await next()
     // TODO: 统一处理其它的异常
     if (parseInt(ctx.status) === 404) {
