@@ -14,6 +14,7 @@ class CodeAnalysis {
    */
   constructor(code, type = 'javascript', rules = BASE_RULES) {
     this.linter = new Linter()
+    console.log(new Linter())
     this.code = code
     this.type = type
     this.rules = rules
