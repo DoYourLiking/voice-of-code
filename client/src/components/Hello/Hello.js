@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import style from './hello.module.scss'
 import axios from 'axios'
-const api = "http://localhost:8000/"
+import soundMap from "./sound"
+import sing from "../sing"
+const api = "http://localhost:8000/music/"
 const Hello = (props) => {
   let [musicStr, setMusicStr] = useState("")
   let [file, setFile] = useState(null)
@@ -16,7 +18,7 @@ const Hello = (props) => {
         console.log(`key ${key}: value ${value}`);
       })
       axios.post(api, req).then((res) => {
-        console.log(res); setResult(res);
+        console.log(res.data.data.music) ;sing(soundMap,"111111")
       })
     }
   }
