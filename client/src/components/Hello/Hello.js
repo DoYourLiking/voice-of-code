@@ -7,6 +7,7 @@ const api = "http://localhost:8000/music/"
 const Hello = (props) => {
   let [musicStr, setMusicStr] = useState("")
   let [file, setFile] = useState(null)
+  // eslint-disable-next-line no-unused-vars
   let [result, setResult] = useState("")
   function uploadFile(file) {
     let req = file ? file : musicStr
