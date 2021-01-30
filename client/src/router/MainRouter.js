@@ -8,11 +8,11 @@ import { Home, Landing } from '../pages'
 const MainRouter = () => {
   return (
     <BrowserRouter>
-      <Route path='/home' exact>
-        <Home />
+      <Route path='/Landing' exact>
+        <Landing />
       </Route>
       <Route path='/' exact>
-        <Landing />
+        <Home />
       </Route>
     </BrowserRouter>
   )
