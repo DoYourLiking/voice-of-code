@@ -20,7 +20,7 @@ const Hello = (props) => {
       })
       axios.post(api, req).then((res) => {
         console.log(res.data.data.music)
-        sing(soundMap, '0123456', 500)
+        sing(soundMap, [11,12], 500)
       })
     }
   }

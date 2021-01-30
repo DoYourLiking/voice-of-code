@@ -14,6 +14,7 @@ const codeAnalysis = async (ctx, next) => {
     .registerRules('upper-case-const-name', upperCaseConstName)
     .startLint()
 
+    console.log(analysis.getResult())
   ctx.analysisResult = analysis.getResult()
   await next()
 }
