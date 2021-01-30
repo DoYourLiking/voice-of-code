@@ -56,7 +56,7 @@ export const Part = styled.div`
   &.first {
     width: 50%;
     float:left;
-    height:870px;
+    height:850px;
   };
   &.second {
     margin-top: 66px;

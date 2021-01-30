@@ -55,7 +55,7 @@ class Home extends Component {
         <img src={ Background } alt=""/>
       </Part>
     </Section>
-        {/* Hero section end */}
+    {/* Hero section end */}
     </Fragment>
     );
   }
