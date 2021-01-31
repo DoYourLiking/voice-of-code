@@ -5,7 +5,7 @@ import replaceKeyWordMap from "./replaceKeyWord.js"
 const errorReplace = function (code, eslintRes) {
     let temp = code.split('\n');
     eslintRes.forEach((item) => {
-        let value = errorType ? errorType.get(item.ruleld) : "500"//默认的错误输出音
+        let value = errorType ? errorType.get(item.ruleld) : "A_1"//默认的错误输出音
         if (item.line === item.endLine) {//错误同一行
             temp[item.line - 1].split("").splice(item.column - 1, item.endColumn - 1,value).join("")
         } else {//错误不同行

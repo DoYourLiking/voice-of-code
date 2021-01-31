@@ -1,4 +1,3 @@
-import A_1 from "../piano/A_1.mp3"
 const { default: sound } = require('./Hello/sound')
 
 const audio = new Audio()
