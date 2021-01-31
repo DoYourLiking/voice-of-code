@@ -3,12 +3,14 @@ import style from './hello.module.scss'
 import axios from 'axios'
 import soundMap from './sound'
 import sing from '../sing'
+
 const api = 'http://localhost:8000/music/'
 const Hello = (props) => {
   let [musicStr, setMusicStr] = useState('')
   let [file, setFile] = useState(null)
   // eslint-disable-next-line no-unused-vars
   let [result, setResult] = useState('')
+
   function uploadFile(file) {
     let req = file ? file : musicStr
     if (!req) {
@@ -21,10 +23,11 @@ const Hello = (props) => {
       })
       axios.post(api, req).then((res) => {
         console.log(res.data.data.music)
-        sing(soundMap, [11,12], 500)
+        sing(soundMap, [11, 12], 500)
       })
     }
   }
+
   return (
     <div className={style.hello}>
       <textarea
@@ -39,9 +42,9 @@ const Hello = (props) => {
           onChange={(e) => {
             setFile(e.target.files[0])
           }}
-          type="file"
-          name="fileName"
-          size="40000"
+          type='file'
+          name='fileName'
+          size='40000'
           multiple
         />
         <button
