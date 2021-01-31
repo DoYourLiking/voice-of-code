@@ -32,11 +32,11 @@ const replaceIndex = function (code) {
             for(let j=0;i<codeArr[i].length;j++){
                 codeArr[i]=codeArr[i].split("")
                 codeArr[i][j]=replaceWordMap.get(codeArr[i][j])
-                codeArr[i].join("")
+                codeArr[i]=codeArr[i].join(" ")
             }
         }
     }
-    return codeArr.join("")
+    return codeArr.join(" ")
 }
 // 下面是根据不同错误做不同替换，甚至唢呐声，目前不考虑
 // const errorType=new Map([
